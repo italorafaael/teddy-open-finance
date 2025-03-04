@@ -5,6 +5,7 @@ import {
   ReactiveFormsModule,
   Validators,
 } from '@angular/forms';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'home-root',
@@ -15,11 +16,19 @@ import {
 export class HomeComponent implements OnInit {
   homeForm!: FormGroup;
 
-  constructor(private fb: FormBuilder) {}
+  constructor(private fb: FormBuilder, private router: Router) {}
 
   ngOnInit() {
     this.homeForm = this.fb.group({
       username: ['', Validators.required],
     });
+  }
+
+  onSubmit() {
+    if (this.homeForm.valid) {
+      const username = this.homeForm.value.username;
+      sessionStorage.setItem('username', username);
+      this.router.navigate(['/clientes']);
+    }
   }
 }

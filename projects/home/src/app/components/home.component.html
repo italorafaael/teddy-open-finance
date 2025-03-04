@@ -1,0 +1,17 @@
+<div class="home-container">
+  <div class="home-content">
+    <h1>Olá, seja bem-vindo!</h1>
+
+    <form [formGroup]="homeForm">
+      <input
+        type="text"
+        formControlName="username"
+        placeholder="Digite seu nome"
+        class="home-input"
+      />
+      <button type="submit" [disabled]="homeForm.invalid" class="home-button">
+        Entrar
+      </button>
+    </form>
+  </div>
+</div>

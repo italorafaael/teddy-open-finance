@@ -4,10 +4,10 @@ const {
 } = require("@angular-architects/module-federation/webpack");
 
 module.exports = withModuleFederationPlugin({
-  name: "shell",
+  name: "home",
 
-  remotes: {
-    home: "http://localhost:4201/remoteEntry.js",
+  exposes: {
+    "./Component": "./projects/home/src/app/components/home.component.ts",
   },
 
   shared: {

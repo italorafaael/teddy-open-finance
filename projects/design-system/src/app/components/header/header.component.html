@@ -1,2 +1,22 @@
-<p>header works!</p>
-<h1>Olá, {{ username }}</h1>
+<header class="header">
+  <div class="header-left">
+    <fa-icon [icon]="faBars" (click)="showSidebar()" />
+
+    <div class="header-logo">
+      <img src="assets/logo.png" alt="Teddy Open Finance" />
+    </div>
+  </div>
+
+  <nav>
+    <a routerLink="/clientes" routerLinkActive="active"> Clientes </a>
+    <a routerLink="/clientes-selecionados" routerLinkActive="active">
+      Clientes Selecionados
+    </a>
+    <a href="#" (click)="logout()">Sair</a>
+  </nav>
+
+  <div class="header-welcome">
+    Olá, <span>{{ username }}</span
+    >!
+  </div>
+</header>

@@ -2,7 +2,7 @@
   <div class="home-content">
     <h1>Olá, seja bem-vindo!</h1>
 
-    <form [formGroup]="homeForm" (ngSubmit)="onSubmit()">
+    <form [formGroup]="homeForm" (ngSubmit)="login()">
       <input
         type="text"
         formControlName="username"

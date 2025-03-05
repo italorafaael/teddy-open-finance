@@ -1,6 +1,6 @@
 * {
-  font-family: "Inter", sans-serif;
   box-sizing: border-box;
+  font-family: "Inter", sans-serif;
 }
 
 .home-container {
@@ -49,12 +49,12 @@
         color: #aaa;
         font-weight: 400;
         transition: border-color 0.3 ease;
-      }
 
-      .home-input:focus {
-        border-color: #ec6724;
-        color: #000;
-        outline: none;
+        &:focus {
+          border-color: #ec6724;
+          color: #000;
+          outline: none;
+        }
       }
 
       .home-button {
@@ -64,15 +64,15 @@
         cursor: pointer;
         font-weight: 700;
         transition: background-color 0.3s ease;
-      }
 
-      .home-button:hover {
-        background-color: #c6531f;
-      }
+        &:hover {
+          background-color: #c6531f;
+        }
 
-      .home-button:disabled {
-        background-color: #ccc;
-        cursor: not-allowed;
+        &:disabled {
+          background-color: #ccc;
+          cursor: not-allowed;
+        }
       }
     }
   }

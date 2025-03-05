@@ -1,4 +1,8 @@
 <div class="clientes-container">
-  <design-system-header></design-system-header>
-  <design-system-sidebar></design-system-sidebar>
+  <design-system-header (openSidebar)="openSidebar()"></design-system-header>
+  <design-system-sidebar
+    *ngIf="sidebarOpen"
+    [isOpen]="sidebarOpen"
+    (closeSidebar)="closeSidebar()"
+  ></design-system-sidebar>
 </div>

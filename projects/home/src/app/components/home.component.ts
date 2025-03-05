@@ -24,7 +24,7 @@ export class HomeComponent implements OnInit {
     });
   }
 
-  onSubmit() {
+  login() {
     if (this.homeForm.valid) {
       const username = this.homeForm.value.username;
       sessionStorage.setItem('username', username);

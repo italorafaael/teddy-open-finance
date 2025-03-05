@@ -1,1 +1,21 @@
-<p>sidebar works!</p>
+<aside class="sidebar" [class.closed]="!isOpen">
+  <div class="sidebar-header">
+    <fa-icon [icon]="faBars" (click)="hideSidebar()" />
+
+    <div class="sidebar-logo">
+      <img src="assets/logo.png" alt="Teddy Open Finance" />
+    </div>
+  </div>
+
+  <nav>
+    <a routerLink="#" routerLinkActive="active">
+      <fa-icon [icon]="faHouse" /> Home
+    </a>
+    <a routerLink="/clientes" routerLinkActive="active">
+      <fa-icon [icon]="faUser" /> Clientes
+    </a>
+    <a routerLink="#" routerLinkActive="active">
+      <fa-icon [icon]="faList" /> Produtos
+    </a>
+  </nav>
+</aside>

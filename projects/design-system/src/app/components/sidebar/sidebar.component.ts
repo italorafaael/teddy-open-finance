@@ -1,4 +1,12 @@
-import { Component, EventEmitter, Input, Output } from '@angular/core';
+import {
+  AfterViewInit,
+  Component,
+  ElementRef,
+  EventEmitter,
+  Input,
+  Output,
+  Renderer2,
+} from '@angular/core';
 import { RouterModule } from '@angular/router';
 import {
   FaIconLibrary,
@@ -17,7 +25,7 @@ import {
   templateUrl: './sidebar.component.html',
   styleUrls: ['./sidebar.component.scss'],
 })
-export class SidebarComponent {
+export class SidebarComponent implements AfterViewInit {
   @Input() isOpen: boolean = false;
   @Output() closeSidebar = new EventEmitter<void>();
 
@@ -26,11 +34,25 @@ export class SidebarComponent {
   faUser = faUser;
   faList = faList;
 
-  constructor(library: FaIconLibrary) {
+  constructor(
+    library: FaIconLibrary,
+    private renderer: Renderer2,
+    private el: ElementRef
+  ) {
     library.addIcons(faBars, faHouse, faUser, faList);
   }
 
   hideSidebar() {
     this.closeSidebar.emit();
+  }
+
+  ngAfterViewInit() {
+    this.updateSidebarPosition();
+    window.addEventListener('storage', this.updateSidebarPosition.bind(this));
+  }
+
+  private updateSidebarPosition(): void {
+    const headerHeight = localStorage.getItem('headerHeight') || '100px';
+    this.renderer.setStyle(this.el.nativeElement, 'top', headerHeight);
   }
 }

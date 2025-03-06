@@ -1,0 +1,17 @@
+.clientes-container {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+
+  .clientes-content {
+    flex: 1;
+    height: calc(100vh - var(--header-height, 100px));
+    padding: 20px;
+    margin-top: var(--header-height, 100px);
+    transition: margin-left 0.3s ease;
+
+    &.sidebar-open {
+      margin-left: 250px;
+    }
+  }
+}

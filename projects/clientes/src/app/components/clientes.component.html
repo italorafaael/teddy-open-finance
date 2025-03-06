@@ -1,8 +1,17 @@
 <div class="clientes-container">
-  <design-system-header (openSidebar)="openSidebar()"></design-system-header>
+  <design-system-header
+    (toggleSidebar)="sidebarOpen = $event"
+    [class.open-sidebar]="openSidebar"
+  ></design-system-header>
   <design-system-sidebar
     *ngIf="sidebarOpen"
     [isOpen]="sidebarOpen"
-    (closeSidebar)="closeSidebar()"
+    (closeSidebar)="sidebarOpen = false"
   ></design-system-sidebar>
+
+  <div class="clientes-content" [class.sidebar-open]="sidebarOpen">
+    <div>
+      <span>{{ clients.length }}</span> clientes encontrados
+    </div>
+  </div>
 </div>
